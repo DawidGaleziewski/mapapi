@@ -19,29 +19,25 @@ var map = new ol.Map({
   //Getting city information via reverse geocoding
   map.addEventListener('click',  (e) => {
       //Init class objects
-      const geocode = new Geocode();
       const weather = new Weather();
 
       //Get lon/lat for cliecked object
       let lonlat  = ol.proj.toLonLat(e.coordinate);
       lonlat = ol.proj.transform(e.coordinate, 'EPSG:3857', 'EPSG:4326')
 
-      console.log(lonlat[0], lonlat[1])
 
 
-      //Get the name of the Country, County, City
-      geocode.reverseGeocode(lonlat[0], lonlat[1])
-        .then(reverseGeocodeData=> {
-            console.log(reverseGeocodeData.results[0].components.city, reverseGeocodeData.results[0].components.country)
-        })
-        .catch(err => console.log(err))
 
       //Get weather for this lon/lat
-            //PS wather app has the name of the city which seems to be working better than the reverseGeocode api
-            //Remove reverse geocode api and use only the weather one
       weather.getWeather(lonlat[0], lonlat[1])
         .then(weatherData => {
             console.log(weatherData)
+        })
+
+     //Get weather forecast
+     weather.forecastWeather(lonlat[0], lonlat[1])
+        .then(forecastData => {
+            console.log(forecastData)
         })
 
   })
