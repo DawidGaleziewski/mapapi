@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Google Maps API</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://bootswatch.com/4/united/bootstrap.min.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Open layers api maps test site</a>
+    </nav>
+    <div class="card">
+        <div class="card-header">
+          Open Layers Maps
+        </div>
+        <div id="map" class="card-body map">
+            
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+          Weather
+        </div>
+        <div id="weather" class="card-body weather">
+            
+        </div>
+    </div>
+
+      <!-- Open Layers Map library -->
+      <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+
+
+      <!-- Reverse geolocation -->
+      <script src="js/geocode.js"></script>
+
+      <!-- Creating map object -->
+      <script src="js/map.js"></script>
+
+</body>
+</html>
