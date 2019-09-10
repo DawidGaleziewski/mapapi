@@ -18,8 +18,9 @@ var map = new ol.Map({
 
   //Getting city information via reverse geocoding
   map.addEventListener('click',  (e) => {
-      //Init geocode object
+      //Init class objects
       const geocode = new Geocode();
+      const weather = new Weather();
 
       //Get lon/lat for cliecked object
       let lonlat  = ol.proj.toLonLat(e.coordinate);
@@ -34,6 +35,15 @@ var map = new ol.Map({
             console.log(reverseGeocodeData.results[0].components.city, reverseGeocodeData.results[0].components.country)
         })
         .catch(err => console.log(err))
+
+      //Get weather for this lon/lat
+            //PS wather app has the name of the city which seems to be working better than the reverseGeocode api
+            //Remove reverse geocode api and use only the weather one
+      weather.getWeather(lonlat[0], lonlat[1])
+        .then(weatherData => {
+            console.log(weatherData)
+        })
+
   })
 
 //https://api.opencagedata.com/geocode/v1/json?q=2338361.5693001114+6856095.689067169&key=da21c3e928654522a51d5fb394fe9496
