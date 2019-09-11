@@ -2,3 +2,16 @@
     height: 400px;
     width: 100%;
   }
+
+.header__image {
+  height: 3rem;
+  display: inline-block;
+}
+
+.header__text {
+  display: inline-block;
+}
+
+.list-group-item {
+  text-align: left;
+}
